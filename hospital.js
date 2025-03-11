@@ -4,26 +4,34 @@ class Pessoa{
         this.nome = nome;
         this.especialidade = especialidade;
     }
-    //metodo
-    apresentar () {
-        return `Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}.`;
-    }
+ 
 }
 
 
 //herdou as infos da classe pessoa
+class Chef extends Pessoa{
+    apresentar(){
+        return `Olá, meu nome é ${this.nome} e minha especialidade é ${this.especialidade}, eu cuido de crianças. E também comando o Hospital Brasil.`;
+    }
+}
+
+class Vice extends Pessoa{
+    apresentando(){
+        return `Olá, meu nome é ${this.nome} e minha especialidade é ${this.especialidade}, eu cuido da sáude mental das pessoas. E também sou Vice no comando do Hospital Brasil.`;
+    }
+}
+
 class Funcionario extends Pessoa{
-    falar = () => (`Olá, sou ${this.nome} e minha profissão é ${this.especialidade}, eu cuido da saúde mental das pessoas.`);
-    dizer = () => console.log(`Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}, responsável por cuidar das grávidas e seus bebês.`);
-    explicar = () => console.log(`Olá, sou ${this.nome} e minha profissão é ${this.especialidade}, que cuida dos hábitos nutricionais dos pacientes.`);
-    comentar = () => console.log(`Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}, ajuda na saúde bucal e tratamento dos dentes.`);
-    explicando = () => console.log(`Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}, responsável por realizar as cirurgias e tratamentos do cérebro.`);
-    falando = () => console.log(`Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}, que é responsável por tratar diagnósticos relacionados ao coração.`);
+    falando(){
+        return `Olá, meu nome é ${this.nome} e minha especialidade é ${this.especialidade}, e eu trabalho no Hospital Brasil.`;
+    }
 }
 
 
-const Duda = new Funcionario("Duda", "Pediatria")
-const Isabela = new Funcionario("Isabela", "Psicologa")
+const Duda = new Chef("Duda", "Pediatria")
+
+const Isabela = new Vice("Isabela", "Psicologa")
+
 const Yasmin = new Funcionario("Yasmin", "Obstetria")
 const Leonardo = new Funcionario("Leonardo", "Nutricionista")
 const Lucas = new Funcionario("Lucas", "Dentista")
@@ -31,14 +39,31 @@ const Felipe = new Funcionario("Felipe", "Neurocirurgia")
 const Vitor = new Funcionario("Vitor", "Cardiologista")
 
 Duda.apresentar();
-Isabela.falar();
-Yasmin.dizer();
-Leonardo.explicar();
-Lucas.comentar();
-Felipe.explicando();
+
+
+Isabela.apresentando();
+
+Yasmin.falando();
+Leonardo.falando();
+Lucas.falando();
+Felipe.falando();
 Vitor.falando();
 
-const paragrafo = document.createElement('p');
-paragrafo.textContent = Duda.apresentar();
-document.body.appendChild(paragrafo);
 
+function exibir(mensagem) {
+    const output = document.getElementById("output");
+    const p = document.createElement("p");
+    p.textContent = mensagem;
+    output.appendChild(p);
+}
+
+
+
+
+exibir(Duda.apresentar());
+exibir(Isabela.apresentando());
+exibir(Yasmin.falando());
+exibir(Leonardo.falando());
+exibir(Lucas.falando());
+exibir(Felipe.falando());
+exibir(Vitor.falando());
