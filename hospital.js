@@ -1,8 +1,10 @@
 class Pessoa{
+    #cadastro
     constructor(nome, especialidade) {
         // o constructor é um metodo tradicional
         this.nome = nome;
         this.especialidade = especialidade;
+        this.#cadastro = this.#cadastro;
     }
  
 }
@@ -28,15 +30,15 @@ class Funcionario extends Pessoa{
 }
 
 
-const Duda = new Chef("Duda", "Pediatria")
+const Duda = new Chef("Duda", "Pediatria", 1234)
 
-const Isabela = new Vice("Isabela", "Psicologa")
+const Isabela = new Vice("Isabela", "Psicologa", 3455)
 
-const Yasmin = new Funcionario("Yasmin", "Obstetria")
-const Leonardo = new Funcionario("Leonardo", "Nutricionista")
-const Lucas = new Funcionario("Lucas", "Dentista")
-const Felipe = new Funcionario("Felipe", "Neurocirurgia")
-const Vitor = new Funcionario("Vitor", "Cardiologista")
+const Yasmin = new Funcionario("Yasmin", "Obstetria", 5667)
+const Leonardo = new Funcionario("Leonardo", "Nutricionista", 8897)
+const Lucas = new Funcionario("Lucas", "Dentista", 2332)
+const Felipe = new Funcionario("Felipe", "Neurocirurgia", 5643)
+const Vitor = new Funcionario("Vitor", "Cardiologista", 4323)
 
 Duda.apresentar();
 
